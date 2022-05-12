@@ -70,7 +70,7 @@ public class Program {
             PrintWriter out = new PrintWriter("out.txt");
 
             for (Pattern pattern : patterns) {
-                out.println(pattern.toFormattedString());
+                out.println(pattern.toString());
             }
 
             out.close();
