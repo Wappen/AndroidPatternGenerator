@@ -7,7 +7,7 @@ public class Program {
     public static void main(String... args) {
         Generator generator = new Generator();
 
-        generator.addConstraint(Utils::androidPatternConstraint);
+        generator.addConstraint(AndroidUtil::patternConstraint);
 
         // Reddit user's constraints:
 

@@ -9,22 +9,6 @@ public class Pattern {
         this.line = line;
     }
 
-    public Pattern(Pattern other) {
-        line = new Dot[other.line.length];
-        System.arraycopy(other.line, 0, line, 0, line.length);
-    }
-
-    public void increment() {
-        int index = line.length - 1;
-        Dot curr;
-
-        do {
-            curr = line[index];
-            line[index] = curr.next();
-            index--;
-        } while(curr == Dot.TOP_LEFT && index >= 0);
-    }
-
     public String toFormattedString() {
         StringBuilder str = new StringBuilder();
 
