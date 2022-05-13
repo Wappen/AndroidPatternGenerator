@@ -1,13 +1,11 @@
+package me.wappen;
+
+import me.wappen.constraints.Constrainer;
+
 import java.util.*;
-import java.util.function.Predicate;
 
 public class Generator {
-    private final List<Predicate<Pattern>> constraints = new ArrayList<>();
-
-    public void addConstraint(Predicate<Pattern> constraint) {
-        constraints.add(constraint);
-    }
-
+    Constrainer constrainer;
     public List<Pattern> generatePatterns(int length) {
         return generatePatterns(length, length);
     }
@@ -19,7 +17,7 @@ public class Generator {
             List<Pattern> patterns = allPermutations(i);
 
             for (Pattern pattern : patterns) {
-                if (checkConstraints(pattern)) {
+                if (constrainer.checkPattern(pattern)) {
                     allowedPatterns.add(pattern);
                 }
             }
@@ -68,7 +66,11 @@ public class Generator {
         return patterns;
     }
 
-    private boolean checkConstraints(Pattern pattern) {
-        return constraints.stream().allMatch(c -> c.test(pattern)); // Check if the pattern is legal according to all constraints
+    public void setConstrainer(Constrainer constrainer) {
+        this.constrainer = constrainer;
+    }
+
+    public Constrainer getConstrainer() {
+        return constrainer;
     }
 }

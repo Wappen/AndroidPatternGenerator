@@ -1,9 +1,10 @@
+package me.wappen;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Pattern {
-    Dot[] line;
+    public Dot[] line;
 
     public Pattern(Dot[] line) {
         this.line = line;

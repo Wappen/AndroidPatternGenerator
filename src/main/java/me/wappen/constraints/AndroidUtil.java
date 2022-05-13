@@ -1,4 +1,8 @@
-import java.util.Arrays;
+package me.wappen.constraints;
+
+import me.wappen.Dot;
+import me.wappen.Pattern;
+
 import java.util.function.Predicate;
 
 public class AndroidUtil {
