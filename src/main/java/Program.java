@@ -44,7 +44,7 @@ public class Program {
             return true;
         });
 
-        List<Pattern> patterns = generator.generatePatterns(4, 9);
+        List<Pattern> patterns = generator.generatePatterns(5, 6);
 
         System.out.printf("Number of allowed patterns: %d%n", patterns.size());
 
