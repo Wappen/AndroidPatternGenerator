@@ -49,7 +49,7 @@ public class Program {
         System.out.printf("Number of allowed patterns: %d%n", patterns.size());
 
         try {
-            PrintWriter out = new PrintWriter("out.txt");
+            PrintWriter out = new PrintWriter("results/out.txt");
 
             for (Pattern pattern : patterns) {
                 out.println(pattern.toString());
@@ -57,7 +57,7 @@ public class Program {
 
             out.close();
 
-            out = new PrintWriter("human-readable-out.txt");
+            out = new PrintWriter("results/human-readable-out.txt");
 
             int i = 1;
             for (Pattern pattern : patterns) {
