@@ -3,13 +3,15 @@ package me.wappen;
 import java.util.Arrays;
 import java.util.List;
 
-public class Pattern {
-    public Dot[] line;
-
-    public Pattern(Dot[] line) {
-        this.line = line;
-    }
-
+/**
+ * A pattern consisting of dots that are in a specific order
+ * @param line The line of dots that are connected
+ */
+public record Pattern(Dot[] line) {
+    /**
+     * Converts the pattern into a nice human-readable formatted string
+     * @return A formatted {@code String}
+     */
     public String toFormattedString() {
         StringBuilder str = new StringBuilder();
 
@@ -45,6 +47,10 @@ public class Pattern {
         return str.toString();
     }
 
+    /**
+     * Converts the pattern to a string in the format of a number where each digit represents the index a dot
+     * @return A {@code String} representing the pattern
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();

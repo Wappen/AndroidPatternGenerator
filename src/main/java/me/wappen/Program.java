@@ -16,14 +16,14 @@ public class Program {
         // Reddit user's constraints:
 
         constrainer.addConstraint(p -> {
-            return p.line[0] == me.wappen.Dot.CENTER && p.line[1].isCorner() || p.line[0].isCorner() && p.line[1] == me.wappen.Dot.CENTER; // Starts at corner and goes to center or reversed
+            return p.line()[0] == me.wappen.Dot.CENTER && p.line()[1].isCorner() || p.line()[0].isCorner() && p.line()[1] == me.wappen.Dot.CENTER; // Starts at corner and goes to center or reversed
         });
 
         constrainer.addConstraint(p -> {
-            for (int i = 0; i < p.line.length - 2; i++) {
-                me.wappen.Dot a = p.line[i];
-                me.wappen.Dot b = p.line[i + 1];
-                me.wappen.Dot c = p.line[i + 2];
+            for (int i = 0; i < p.line().length - 2; i++) {
+                me.wappen.Dot a = p.line()[i];
+                me.wappen.Dot b = p.line()[i + 1];
+                me.wappen.Dot c = p.line()[i + 2];
 
                 // Don't allow full vertical or horizontal columns or rows
                 if (a.getY() == b.getY() && b.getY() == c.getY() || a.getX() == b.getX() && b.getX() == c.getX())
@@ -33,14 +33,14 @@ public class Program {
         });
 
         constrainer.addConstraint(p -> // Must span all columns
-            Arrays.stream(p.line).anyMatch(d -> d.getX() == -1) &&
-            Arrays.stream(p.line).anyMatch(d -> d.getX() == 0) &&
-            Arrays.stream(p.line).anyMatch(d -> d.getX() == 1));
+            Arrays.stream(p.line()).anyMatch(d -> d.getX() == -1) &&
+            Arrays.stream(p.line()).anyMatch(d -> d.getX() == 0) &&
+            Arrays.stream(p.line()).anyMatch(d -> d.getX() == 1));
 
         constrainer.addConstraint(p -> // Must span all rows
-            Arrays.stream(p.line).anyMatch(d -> d.getY() == -1) &&
-            Arrays.stream(p.line).anyMatch(d -> d.getY() == 0) &&
-            Arrays.stream(p.line).anyMatch(d -> d.getY() == 1));
+            Arrays.stream(p.line()).anyMatch(d -> d.getY() == -1) &&
+            Arrays.stream(p.line()).anyMatch(d -> d.getY() == 0) &&
+            Arrays.stream(p.line()).anyMatch(d -> d.getY() == 1));
 
         generator.setConstrainer(constrainer);
         List<Pattern> patterns = generator.generatePatterns(5, 6);
