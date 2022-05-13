@@ -34,7 +34,7 @@ public class Pattern {
                 }
 
                 if (dotIndex != -1)
-                    str.append(" ").append(dotIndex);
+                    str.append(" ").append(dotIndex + 1);
                 else
                     str.append(" •");
             }

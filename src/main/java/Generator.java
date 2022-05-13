@@ -52,9 +52,7 @@ public class Generator {
         for (int i = 0; i < dots.size(); i++) {
             Dot dot = dots.get(i);
             Dot[] line = new Dot[start.line.length + 1];
-            for (int j = 0; j < start.line.length; j++) {
-                line[j] = start.line[j];
-            }
+            System.arraycopy(start.line, 0, line, 0, start.line.length);
             line[line.length - 1] = dot;
 
             Pattern newStart = new Pattern(line);
@@ -67,10 +65,6 @@ public class Generator {
     }
 
     private boolean checkConstraints(Pattern pattern) {
-        for (Predicate<Pattern> constraint : constraints) {
-            if (!constraint.test(pattern))
-                return false;
-        }
-        return true;
+        return constraints.stream().allMatch(c -> c.test(pattern)); // Check if the pattern is legal according to all constraints
     }
 }
