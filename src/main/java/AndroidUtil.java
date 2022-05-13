@@ -15,6 +15,8 @@ public class AndroidUtil {
                             Arrays.stream(p.line).noneMatch(d -> d.getX() == 0 && d.getY() == dot.getY())) // If so then only allow it if it was already used
                         return false;
                 }
+                else if (dot.getX() + prev.getX() == 0 && dot.getY() + prev.getY() == 0)
+                    return false;
             }
             prev = dot;
         }

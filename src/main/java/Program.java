@@ -44,7 +44,7 @@ public class Program {
             return true;
         });
 
-        List<Pattern> patterns = generator.generatePatterns(5, 6);
+        List<Pattern> patterns = generator.generatePatterns(4, 4);
 
         System.out.printf("Number of allowed patterns: %d%n", patterns.size());
 
@@ -53,6 +53,15 @@ public class Program {
 
             for (Pattern pattern : patterns) {
                 out.println(pattern.toString());
+            }
+
+            out.close();
+
+            out = new PrintWriter("human-readable-out.txt");
+
+            int i = 1;
+            for (Pattern pattern : patterns) {
+                out.println("#" + i++ + " " + pattern.toFormattedString());
             }
 
             out.close();

@@ -15,8 +15,9 @@ public class Pattern {
         str.append("Length: ").append(line.length).append('\n');
 
         for (Dot dot : line) {
-            str.append(dot.name()).append(' ');
+            str.append(dot.name()).append(", ");
         }
+        str.delete(str.length() - 2, str.length() - 1);
 
         str.append('\n');
 
