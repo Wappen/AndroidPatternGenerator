@@ -8,6 +8,10 @@ public class Generator {
         constraints.add(constraint);
     }
 
+    public List<Pattern> generatePatterns(int length) {
+        return generatePatterns(length, length);
+    }
+
     public List<Pattern> generatePatterns(int minLength, int maxLength) {
         List<Pattern> allowedPatterns = new LinkedList<>();
 
