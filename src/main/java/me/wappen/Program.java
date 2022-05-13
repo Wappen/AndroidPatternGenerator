@@ -1,7 +1,6 @@
 package me.wappen;
 
 import me.wappen.constraints.AndroidPatternConstrainer;
-import me.wappen.constraints.AndroidUtil;
 import me.wappen.constraints.Constrainer;
 
 import java.io.FileNotFoundException;
