@@ -1,7 +1,7 @@
-package me.wappen.constraints;
+package me.wappen.lockpatterns.constraints;
 
-import me.wappen.Dot;
-import me.wappen.Pattern;
+import me.wappen.lockpatterns.Dot;
+import me.wappen.lockpatterns.Pattern;
 
 import java.util.function.Predicate;
 
@@ -14,7 +14,7 @@ public class AndroidPatternConstrainer extends Constrainer {
     }
 
     /**
-     * Tests if a {@code pattern} matches Android's pattern constraints
+     * Tests if a pattern matches Android's lock pattern constraints
      * @param pattern The pattern to test
      * @return {@code true} if the pattern is valid
      */

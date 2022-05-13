@@ -1,4 +1,4 @@
-package me.wappen;
+package me.wappen.lockpatterns;
 
 /**
  * Enum of dots that can be used in a lock pattern

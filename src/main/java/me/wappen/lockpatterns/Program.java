@@ -1,7 +1,7 @@
-package me.wappen;
+package me.wappen.lockpatterns;
 
-import me.wappen.constraints.AndroidPatternConstrainer;
-import me.wappen.constraints.Constrainer;
+import me.wappen.lockpatterns.constraints.AndroidPatternConstrainer;
+import me.wappen.lockpatterns.constraints.Constrainer;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -16,14 +16,14 @@ public class Program {
         // Reddit user's constraints:
 
         constrainer.addConstraint(p -> {
-            return p.line()[0] == me.wappen.Dot.CENTER && p.line()[1].isCorner() || p.line()[0].isCorner() && p.line()[1] == me.wappen.Dot.CENTER; // Starts at corner and goes to center or reversed
+            return p.line()[0] == Dot.CENTER && p.line()[1].isCorner() || p.line()[0].isCorner() && p.line()[1] == Dot.CENTER; // Starts at corner and goes to center or reversed
         });
 
         constrainer.addConstraint(p -> {
             for (int i = 0; i < p.line().length - 2; i++) {
-                me.wappen.Dot a = p.line()[i];
-                me.wappen.Dot b = p.line()[i + 1];
-                me.wappen.Dot c = p.line()[i + 2];
+                Dot a = p.line()[i];
+                Dot b = p.line()[i + 1];
+                Dot c = p.line()[i + 2];
 
                 // Don't allow full vertical or horizontal columns or rows
                 if (a.getY() == b.getY() && b.getY() == c.getY() || a.getX() == b.getX() && b.getX() == c.getX())

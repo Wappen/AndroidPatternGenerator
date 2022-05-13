@@ -1,6 +1,6 @@
-package me.wappen;
+package me.wappen.lockpatterns;
 
-import me.wappen.constraints.Constrainer;
+import me.wappen.lockpatterns.constraints.Constrainer;
 
 import java.util.*;
 

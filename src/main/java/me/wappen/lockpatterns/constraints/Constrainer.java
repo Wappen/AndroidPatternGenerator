@@ -1,6 +1,6 @@
-package me.wappen.constraints;
+package me.wappen.lockpatterns.constraints;
 
-import me.wappen.Pattern;
+import me.wappen.lockpatterns.Pattern;
 
 import java.util.ArrayList;
 import java.util.List;

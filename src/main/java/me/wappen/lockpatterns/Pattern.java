@@ -1,4 +1,4 @@
-package me.wappen;
+package me.wappen.lockpatterns;
 
 import java.util.Arrays;
 import java.util.List;

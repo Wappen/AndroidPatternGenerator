@@ -1,6 +1,6 @@
-package me.wappen.constraints;
+package me.wappen.lockpatterns.constraints;
 
-import me.wappen.Pattern;
+import me.wappen.lockpatterns.Pattern;
 
 /**
  * Functional interface for constraints used in the {@code Constrainer}
