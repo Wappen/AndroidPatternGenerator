@@ -1,5 +1,8 @@
-package me.wappen.lockpatterns;
+package me.wappen.lockpatterns.example;
 
+import me.wappen.lockpatterns.Dot;
+import me.wappen.lockpatterns.Generator;
+import me.wappen.lockpatterns.Pattern;
 import me.wappen.lockpatterns.constraints.AndroidPatternConstrainer;
 import me.wappen.lockpatterns.constraints.Constrainer;
 
