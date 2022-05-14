@@ -44,52 +44,35 @@ public class Generator {
     }
 
     /**
-     * Returns a list of all permutations with a given length
-     * @param length The length all permutations should have
-     * @return A list of all pattern permutations
+     * Returns a list of all permutations with a desired length
+     * @param length The length that all permutations should have
+     * @return A list of all permutations
      */
     private List<Pattern> allPermutations(int length) {
-        List<Pattern> patterns = new LinkedList<>();
-        List<Dot> dotList = Arrays.stream(Dot.values()).toList();
-
-        for (int i = 0; i < Dot.values().length; i++) {
-            Dot dot = Dot.fromInt(i);
-            Dot[] line = {dot};
-
-            Pattern newStart = new Pattern(line);
-            List<Dot> newDots = dotList.stream().filter(d -> d != dot).toList();
-
-            patterns.addAll(allPerms(newStart, length - 1, newDots));
-        }
-
-        return patterns;
+        return permutationsRecursive(new LinkedList<>(), Arrays.stream(Dot.values()).toList(), length);
     }
 
     /**
-     * Recursively generates all permutations with a given length, a start for the pattern and all dots that are left to use
+     * Recursively generates all permutations that start with the given starting dots,
+     * and end with a tail of the given length consisting of the given dots in {@code dotPalette}
      * @param start Beginning of the resulting pattern
+     * @param dotPalette Palette of dots that are left to be used
      * @param length The desired length
-     * @param dots Dots that are left to be used
      * @return A list of all pattern permutations with the given length of the given dots
      */
-    private List<Pattern> allPerms(Pattern start, int length, List<Dot> dots) {
+    private List<Pattern> permutationsRecursive(List<Dot> start, List<Dot> dotPalette, int length) {
+        if (length == 0)
+            return Collections.singletonList(new Pattern(start.toArray(new Dot[0])));
+
         List<Pattern> patterns = new LinkedList<>();
 
-        if (length == 0) {
-            patterns.add(start);
-            return patterns;
-        }
+        for (int i = 0; i < dotPalette.size(); i++) {
+            Dot dot = dotPalette.get(i);
+            List<Dot> newStart = new LinkedList<>(start);
+            newStart.add(dot);
+            List<Dot> newDots = dotPalette.stream().filter(d -> d != dot).toList();
 
-        for (int i = 0; i < dots.size(); i++) {
-            Dot dot = dots.get(i);
-            Dot[] line = new Dot[start.line().length + 1];
-            System.arraycopy(start.line(), 0, line, 0, start.line().length);
-            line[line.length - 1] = dot;
-
-            Pattern newStart = new Pattern(line);
-            List<Dot> newDots = dots.stream().filter(d -> d != dot).toList();
-
-            patterns.addAll(allPerms(newStart, length - 1, newDots));
+            patterns.addAll(permutationsRecursive(newStart, newDots, length - 1));
         }
 
         return patterns;
